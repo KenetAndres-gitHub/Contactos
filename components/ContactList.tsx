@@ -34,9 +34,9 @@ const ContactList = () => {
     setContacts(contacts.filter(contact => contact.id !== idToDelete));
   };
 
-  const updateContactPhone = (idToUpdate: string, newPhone: string) => {
+  const updateContact = (idToUpdate: string, newName: string, newPhone: string) => {
     setContacts(contacts.map(contact =>
-      contact.id === idToUpdate ? { ...contact, phoneNumber: newPhone } : contact
+      contact.id === idToUpdate ? { ...contact, name: newName, phoneNumber: newPhone } : contact
     ));
   };
 
@@ -45,7 +45,7 @@ const ContactList = () => {
       name={item.name}
       phoneNumber={item.phoneNumber}
       onDelete={() => deleteContact(item.id)}
-      onUpdate={(newPhone) => updateContactPhone(item.id, newPhone)}
+      onUpdate={(newName, newPhone) => updateContact(item.id, newName, newPhone)} // Updated to handle name and phone
     />
   );
 
@@ -72,11 +72,11 @@ const ContactList = () => {
             onChangeText={setNewContactPhone}
             keyboardType="phone-pad"
           />
-          <Button title="Agregar Contacto" onPress={addContact} color={isDarkMode ? '#bb86fc' : '#6200ee'} />
+          <Button title="Agregar Contacto" onPress={addContact} color={isDarkMode ? '#00897b' : '#004d40'} />
         </View>
       )}
       <FlatList
-        data={contacts}
+        data={[...contacts].sort((a, b) => parseInt(b.id) - parseInt(a.id))} // Sort contacts
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         contentContainerStyle={styles.listContent}
@@ -98,10 +98,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   lightContainer: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#f4f8fc', // Soft light blue-gray
   },
   darkContainer: {
-    backgroundColor: '#121212',
+    backgroundColor: '#102a43', // Deep navy blue
   },
   input: {
     height: 40,
@@ -112,21 +112,21 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   lightInput: {
-    borderColor: '#cccccc',
-    backgroundColor: '#f9f9f9',
-    color: '#000000',
+    borderColor: '#b0d4f1', // Light blue border
+    backgroundColor: '#ffffff', // White background
+    color: '#102a43', // Deep navy blue text
   },
   darkInput: {
-    borderColor: '#444444',
-    backgroundColor: '#1e1e1e',
-    color: '#ffffff',
+    borderColor: '#1c3d5a', // Dark blue border
+    backgroundColor: '#1e3a5f', // Dark blue background
+    color: '#d1e8ff', // Soft light blue text
   },
   listContent: {
     paddingBottom: 80, // Add padding to avoid overlap with FAB
   },
   fab: {
     position: 'absolute',
-    bottom: 80, // Adjusted to avoid overlap with the navigation bar
+    bottom: 20,
     right: 20,
     width: 60,
     height: 60,
@@ -136,14 +136,14 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   lightFab: {
-    backgroundColor: '#6200ee',
+    backgroundColor: '#00897b', // Teal
   },
   darkFab: {
-    backgroundColor: '#bb86fc',
+    backgroundColor: '#004d40', // Dark teal
   },
   fabText: {
     fontSize: 24,
-    color: '#ffffff',
+    color: '#ffffff', // White text for contrast
     fontWeight: 'bold',
   },
   inputContainer: {

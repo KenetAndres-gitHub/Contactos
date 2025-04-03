@@ -1,50 +1,56 @@
-# Welcome to your Expo app 👋
+# App de Contactos 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Este es un proyecto de React Native creado con [Expo](https://expo.dev). La aplicación permite a los usuarios ver y gestionar una lista de contactos. Incluye características como soporte para modo claro y oscuro para una mejor experiencia de usuario.
 
-## Get started
+## Características
 
-1. Install dependencies
+- **Lista de Contactos**: Muestra una lista de contactos.
+- **Soporte para Modo Oscuro**: Ajusta automáticamente el tema según la configuración de color del dispositivo.
+- **Interfaz Personalizable**: Diseñada con colores vibrantes y contrastantes para los modos claro y oscuro.
+
+## Cómo empezar
+
+1. Instala las dependencias
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. Inicia la aplicación
 
    ```bash
-    npx expo start
+   npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+En la salida, encontrarás opciones para abrir la aplicación en:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- [build de desarrollo](https://docs.expo.dev/develop/development-builds/introduction/)
+- [emulador de Android](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [simulador de iOS](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), un entorno limitado para probar el desarrollo de aplicaciones con Expo.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Puedes comenzar a desarrollar editando los archivos dentro del directorio **app**. Este proyecto utiliza [enrutamiento basado en archivos](https://docs.expo.dev/router/introduction/).
 
-## Get a fresh project
+## Obtener un proyecto limpio
 
-When you're ready, run:
+Cuando estés listo, ejecuta:
 
 ```bash
 npm run reset-project
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Este comando moverá el código inicial al directorio **app-example** y creará un directorio vacío **app** donde podrás comenzar a desarrollar.
 
-## Learn more
+## Aprende más
 
-To learn more about developing your project with Expo, look at the following resources:
+Para aprender más sobre cómo desarrollar tu proyecto con Expo, consulta los siguientes recursos:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- [Documentación de Expo](https://docs.expo.dev/): Aprende los fundamentos o explora temas avanzados con nuestras [guías](https://docs.expo.dev/guides).
+- [Tutorial de Expo](https://docs.expo.dev/tutorial/introduction/): Sigue un tutorial paso a paso donde crearás un proyecto que funciona en Android, iOS y la web.
 
-## Join the community
+## Únete a la comunidad
 
-Join our community of developers creating universal apps.
+Únete a nuestra comunidad de desarrolladores creando aplicaciones universales.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- [Expo en GitHub](https://github.com/expo/expo): Consulta nuestra plataforma de código abierto y contribuye.
+- [Comunidad en Discord](https://chat.expo.dev): Chatea con usuarios de Expo y haz preguntas.

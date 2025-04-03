@@ -9,7 +9,7 @@ export default function Index() {
   return (
     <SafeAreaView style={[styles.container, isDarkMode ? styles.darkContainer : styles.lightContainer]}>
       <View style={[styles.headerContainer, isDarkMode ? styles.darkHeader : styles.lightHeader]}>
-        <Text style={[styles.header, isDarkMode ? styles.darkText : styles.lightText]}>Contact App</Text>
+        <Text style={[styles.header, isDarkMode ? styles.darkText : styles.lightText]}>Contactos</Text>
       </View>
       <ContactList />
     </SafeAreaView>
@@ -34,19 +34,19 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   lightHeader: {
-    backgroundColor: '#6200ee',
+    backgroundColor: '#4a90e2', // Vibrant blue
   },
   darkHeader: {
-    backgroundColor: '#3700b3',
+    backgroundColor: '#1c3d5a', // Deep navy blue
   },
   header: {
     fontSize: 24,
     fontWeight: 'bold',
   },
   lightText: {
-    color: '#ffffff',
+    color: '#ffffff', // White text for contrast
   },
   darkText: {
-    color: '#ffffff',
+    color: '#d1e8ff', // Soft light blue for dark mode
   },
 });

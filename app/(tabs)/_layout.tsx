@@ -14,25 +14,12 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
+        headerShown: false, // Oculta el encabezado de cada pantalla
+        tabBarStyle: { display: 'none' }, // Oculta la barra de pestañas
+        tabBarButton: () => null, // Otra forma de ocultar los botones de las pestañas
       }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Lista',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
+      <Tabs.Screen name="index" options={{ title: 'Inicio' }} /> {/* Ajusta el título si es necesario */}
+      {/* ... otras pantallas de pestañas si las tuvieras */}
     </Tabs>
   );
 }
