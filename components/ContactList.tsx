@@ -8,7 +8,7 @@ interface Contact {
   phoneNumber: string;
 }
 
-const ContactList = () => {
+const ContactList = ({ searchQuery }: { searchQuery: string }) => {
   const colorScheme = useColorScheme();
   const isDarkMode = colorScheme === 'dark';
 
@@ -53,6 +53,10 @@ const ContactList = () => {
     setIsFormVisible(!isFormVisible);
   };
 
+  const filteredContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <View style={[styles.container, isDarkMode ? styles.darkContainer : styles.lightContainer]}>
       {isFormVisible && (
@@ -75,12 +79,18 @@ const ContactList = () => {
           <Button title="Agregar Contacto" onPress={addContact} color={isDarkMode ? '#00897b' : '#004d40'} />
         </View>
       )}
-      <FlatList
-        data={[...contacts].sort((a, b) => parseInt(b.id) - parseInt(a.id))} // Sort contacts
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={styles.listContent}
-      />
+      {filteredContacts.length === 0 ? (
+        <Text style={[styles.noContactsText, isDarkMode ? styles.darkText : styles.lightText]}>
+          No se encontraron contactos.
+        </Text>
+      ) : (
+        <FlatList
+          data={[...filteredContacts].sort((a, b) => parseInt(b.id) - parseInt(a.id))} // Sort contacts
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={styles.listContent}
+        />
+      )}
       <TouchableOpacity
         style={[styles.fab, isDarkMode ? styles.darkFab : styles.lightFab]}
         onPress={toggleFormVisibility}
@@ -148,6 +158,17 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     marginBottom: 20,
+  },
+  noContactsText: {
+    textAlign: 'center',
+    marginTop: 20,
+    fontSize: 16,
+  },
+  lightText: {
+    color: '#333',
+  },
+  darkText: {
+    color: '#ccc',
   },
 });
 
